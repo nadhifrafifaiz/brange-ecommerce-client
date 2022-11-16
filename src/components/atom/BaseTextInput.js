@@ -1,34 +1,25 @@
 import React from "react";
+import { InputText } from "primereact/inputtext";
 import PropTypes from "prop-types";
 
 function BaseTextInput(props) {
   return (
     <div className="w-full">
-      <div className="mb-4 flex flex-col gap-1">
-        <label
-          htmlFor={props.label}
-          className="block text-sm font-medium text-gray-700"
-        >
-          {props.label}
-        </label>
-        <input
-          className={`focus:shadow-outline w-full appearance-none  rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none ${
-            props.error ? "border-red-500" : null
-          }`}
-          id={props.label}
-          type="text"
-          placeholder={props.placeholder}
-        />
-        {props.error ? (
-          <p
-            className={`block text-sm font-semibold  ${
-              props.error ? "text-red-500" : "text-gray-700"
-            }`}
-          >
-            {props.errorMessage}
-          </p>
-        ) : null}
-      </div>
+      <label htmlFor="username2" className="block">
+        {props.label}
+      </label>
+      <InputText
+        {...props}
+        id="username"
+        className={`focus:shadow-outline w-full appearance-none  rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none ${
+          props.error ? "p-invalid block" : null
+        }`}
+      />
+      {props.error ? (
+        <small id="username2-help" className="p-error block">
+          {props.errorMessage}
+        </small>
+      ) : null}
     </div>
   );
 }
