@@ -1,29 +1,18 @@
-import BaseTextInput from "./components/atom/BaseTextInput";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BaseComponent from "./pages/BaseComponents";
+import ErrorNotFoundPage from "./pages/error-page/ErrorNotFoundPage";
 
 function App() {
-  const [test, setTest] = useState("s");
   return (
-    <div className="m-4">
-      <p>{test}</p>
-      <BaseTextInput
-        value={test}
-        onChange={(e) => setTest(e.target.value)}
-        label="Name"
-        placeholder="Input your name"
-        error={true}
-        errorMessage="Im error"
-      />
-      <BaseTextInput
-        label="Email"
-        placeholder="Input your email"
-        error={false}
-        errorMessage="Im error"
-      />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<BaseComponent />} />
+        <Route path="*" element={<ErrorNotFoundPage />} />
+      </Routes>
+    </Router>
   );
 }
 
