@@ -1,3 +1,4 @@
+/* eslint-disable no-alert, no-console */
 const initialState = {
   userId: "",
   username: "tes",
@@ -8,8 +9,8 @@ const initialState = {
 
 const auth = (state = initialState, { type }) => {
   switch (type) {
-  default:
-    return state;
+    default:
+      return state;
   }
 };
 
