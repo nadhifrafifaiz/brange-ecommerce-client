@@ -1,15 +1,16 @@
 import React from "react";
-import { InputText } from "primereact/inputtext";
+import { Password } from "primereact/password";
 import PropTypes from "prop-types";
 
-function BaseTextInput(props) {
+function BasePasswordInput(props) {
   return (
     <div className="w-full">
       <label htmlFor="username2" className="block">
         {props.label}
       </label>
-      <InputText
+      <Password
         {...props}
+        toggleMask
         id="username"
         className={`w-full appearance-none rounded leading-tight text-gray-700  focus:outline-none ${
           props.error ? "p-invalid block" : null
@@ -23,11 +24,11 @@ function BaseTextInput(props) {
     </div>
   );
 }
-BaseTextInput.propTypes = {
+BasePasswordInput.propTypes = {
   label: PropTypes.node.isRequired,
   placeholder: PropTypes.node.isRequired,
   error: PropTypes.node.isRequired,
   errorMessage: PropTypes.node.isRequired,
 };
 
-export default BaseTextInput;
+export default BasePasswordInput;
